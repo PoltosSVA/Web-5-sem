@@ -1,0 +1,37 @@
+{% extends "back_info/news_0.html" %}
+{% block title %}Barbie Pre-party{% endblock %}
+{% load static %}
+
+  {% block news-title %}{{ news.title }}{% endblock %}
+  {% block news-date %}{{ news.created }}{% endblock %}
+  {% block news-img %}<img src="{% static news.img_path %}?v=2" alt="">{% endblock %}
+  {% block news-text %}
+    <section class="news_x_text">
+      <p>{{ news.content }}</p>
+<!--      <p><strong>КИНО-ВЕЧЕРИНКА В СТИЛЕ BARBIE В КИНОТЕАТРЕ SKYLINE Cinema!</strong></p>-->
+<!--      <br>-->
+<!--      <p><strong>В ПРОГРАММЕ 3 ФИЛЬМА НА ВЫБОР: ДНЕВНИК ПАМЯТИ, СЕРЫЙ ЧЕЛОВЕК И КРАСОТКА НА ВСЮ ГОЛОВУ, А ТАКЖЕ МОРЕ РАЗВЛЕЧЕНИЙ И ЯРКИХ ЭМОЦИЙ ДЛЯ ВСЕХ!</strong></p><br>-->
+<!--      <p>Тренд на яркое, тренд на розовое, тренд на веселье — ну как тут пройти мимо! Вас ждет розовый взрыв цвета и эмоций на самой яркой вечеринке этого сезона в SKYLINE Cinema.</p>-->
+<!--      <br>-->
+<!--      <p><strong>27 июля </strong>наш кинотеатр превратится в настоящий кукольный домик, который мечтала иметь каждая девочка и в который хотел заглянуть каждый мальчик!</p>-->
+<!--      <br>-->
+<!--      <p>А дополним атмосферу крутыми DJ сетами и зажигательными танцами. Торопитесь, количество мест ограничено</p>-->
+<!--      <br>-->
+<!--      <p>Будь в ярком тренде вместе со SKYLINE Cinema!</p>-->
+    </section>
+  {% endblock %}
+
+  {% block news-2 %}
+    <a class="news-card-link" href="{% url 'back_info:news_0' %}">
+        <div class="news-card">
+          <div class="news-img">
+            <img src="{% static 'back_info/images/news-0.png' %}?v=2" alt="">
+          </div>
+          <div class="news-descr">
+            <br>
+            <h4>Счастливый билет в SKYLINE Cinema</h4>
+            <br>
+          </div>
+        </div>
+      </a>
+  {% endblock %}

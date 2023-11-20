@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Create film{% endblock %}
+{% block content %}
+<h1>Film Delete</h1>
+<form method="post" action="{% url 'delete_film' object.pk %}">
+    {% csrf_token %}
+    Are you sure you want to delete "{{ object }}" ?
+    <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

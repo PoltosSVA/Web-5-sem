@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Film details{% endblock %}
+
+{% block content %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'filmcatalog/css/film_detail.css'%}"/>
+
+  <div class="product-detail-page">
+    <section class="header">
+        <h1>{{ film.name }}</h1>
+    </section>
+
+    <div class="detail-wrapper">
+      <section class="image">
+        <div class="image-wrapper">
+          <img src="{{ film.photo.url }}" alt="">
+        </div>
+      </section>
+
+      <section class="details">
+        <p><strong>Author:</strong>{{ film.author}}</p>
+        <p><strong>Genre:</strong> {% for genre in film.genre.all %} {{ genre.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+        <p><strong>Cost:</strong> <i>$</i>{{ film.cost }}</p>
+        <p><strong>Description:</strong> {{ film.description }}</p>
+        <p><strong>Duration:</strong> {{ film.duration|time:"H:i:s" }}</p>
+
+        <div class="auth_check">
+          {%if user.is_authenticated%}
+            {% for group in user.groups.all %}
+              {% if group.name == 'Customer' %}
+                 <form action="{% url 'cart_add' film.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Add to cart" class="buy-btn">
+                </form>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            <br>
+            <br>
+             <a href="{% url 'login' %}">Sign in to make purchases</a>
+          {% endif %}
+        </div>
+
+      </section>
+    </div>
+
+  </div>
+
+{# card_moving #}
+<script src="{% static 'filmcatalog/js/card_moving.js' %}"></script>
+{% endblock %}

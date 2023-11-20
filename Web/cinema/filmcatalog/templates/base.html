@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  {% block head %}
+    <title>{% block title %}eDostavka{% endblock %}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'filmcatalog/css/styles.css' %}?v=6" type="text/css" >
+    <link rel="icon" href="{% static 'filmcatalog/images/img.png' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'filmcatalog/fonts/fontawesome/css/all.min.css' %}">
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    <header>
+      <nav>
+
+        {% block sidebar %}
+        <div class="nav-bar-logo">
+            <a href="{% url 'index' %}"><img src="{% static 'filmcatalog/images/img_1.png' %}" alt="filmcatalog logo"></a>
+        </div>
+        <div class="nav-list">
+            <div class="drop">
+              <a href="#">Info</a>
+              <div class="drop-list">
+                  <a href="{% url 'back_info:about_us' %}" id = "about">About us</a>
+                  <a href="{% url 'back_info:policy' %}" target="_blank">Policy</a>
+                  <a href="{% url 'back_info:openings' %}">Openings</a>
+                  <a href="{% url 'back_info:news' %}">News</a>
+                  <a href="{% url 'back_info:contacts' %}">Contacts</a>
+                  <a href="{% url 'back_info:reviews' %}">Reviews</a>
+                  <a href="{% url 'back_info:terms_conditions' %}">Terms and definitions</a>
+                  <a href="{% url 'back_info:coupons' %}">Coupons</a>
+              </div>
+            </div>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'film_list' %}">Films</a>
+            {% for group in user.groups.all %}
+              {% if group.name == 'Admin' %}
+                <a href="{% url 'list_film' %}">Administrator</a>
+              {% endif %}
+            {% endfor %}
+            {% for group in user.groups.all %}
+              {% if group.name == 'Customer' %}
+                <a href="{% url 'cart_detail' %}">Cart</a>
+              {% endif %}
+            {% endfor %}
+
+            {% if user.is_authenticated %}
+              <div class="user-label">
+                <a href="{% url 'users_profile' %}"><p>{{ user.get_username }}</p></a>
+              </div>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+              <button id="log-out-button" class="auth-btn">Log out</button>
+            {% else %}
+
+              <button id="sign-in-button" class="auth-btn">Sign in</button>
+              <button id="sign-up-button" class="auth-btn">Sign up</button>
+            {% endif %}
+          {% endblock %}
+           <script>
+            document.getElementById("sign-in-button").addEventListener("click", function() {
+              window.location.href = "{% url 'login' %}?next={{ '' }}";
+            });
+          </script>
+
+          <script>
+            document.getElementById("sign-up-button").addEventListener("click", function() {
+              window.location.href = "{% url 'register' %}?next={{ '' }}";
+            });
+          </script>
+
+          <script>
+            document.getElementById("log-out-button").addEventListener("click", function() {
+              window.location.href = "{% url 'logout' %}?next={{ '' }}";
+            });
+          </script>
+
+
+
+        </div>
+        </nav>
+    </header>
+    <div id="countdown" style="position: absolute; top: 65px; left: 5px; border: 0px solid #000; padding: 4px; background-color: orange; font-family: Arial, sans-serif; border-radius:10px;"></div>
+    <main>
+     <div class="content-wrapper">
+      <div class="content">
+          {% block content %}{% endblock %}
+      </div>
+    </div>
+    </main>
+
+    <footer class="footer">
+
+      <section class="footer-contacts">
+
+        <div class="social-media">
+            <div class="social-text">
+              <p>Social media</p>
+            </div>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/skyline_by/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://t.me/skyline_by/" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+              <a href="https://vk.com/skylineby" target="_blank"><i class="fa-brands fa-vk"></i></a>
+              <a href="https://www.facebook.com/skylineby/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+          </div>
+
+
+      </section>
+
+      <section class="footer-policy">
+
+								© 2022, SKYLINE Cinema<br>
+								ООО «Белсинема» Республика Беларусь <br>
+								Зарегистрировано решением Минского облисполкома от 03.03.2020г. в Едином государственном регистре юридических лиц и индивидуальных предпринимателей за № 692158247. УНП 692158247<br>
+								Почтовый адрес: 220050, а/я 123 г. Минск<br>
+                                Интернет-магазин: skyline.by Дата регистрации в торговом реестре: 04.11.2022<br>
+                                e-mail: info@skycinema.by<br>
+
+      </section>
+
+    </footer>
+
+
+  {#  countdown  #}
+<script src="{% static 'filmcatalog/js/countdown.js' %}"></script>
+</body>
+
+
+</html>

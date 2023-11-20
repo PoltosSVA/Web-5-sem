@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block title %}About us{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'back_info/css/about_us.css' %}?v=6"/>
+
+<div class="about-us-page">
+
+    <div class="header">
+      <h2>О компании</h2>
+    </div>
+
+    <article class="info">
+      <figure>
+        <img src="{% static 'back_info/images/about_company.png' %}" alt="">
+        <figcaption>
+          <p>Banner</p>
+        </figcaption>
+      </figure>
+
+
+      <div class="columns-sp">
+          <p>Наш главный приоритет – создавать особую атмосферу для ярких мгновений и незабываемых впечатлений.</p>
+        <p>SKYLINE Cinema – новая сеть кинотеатров с уникальными техническими решениями, атмосферным пространством, модным дизайном и исключительным сервисом.</p>
+        <p>Кинопространство занимает более 3 500 м2 в ТРЦ Galileo. На трех ярусах работает 7 кинозалов разной вместимости. За дизайн отвечает английское архитектурное бюро Сhapman Taylor, создавшее интерьеры для кинотеатров в Дубае (известный мультиплекс в Dubai Mall), Лондоне, Гамбурге и Мадриде. Ничего похожего еще не было в Беларуси – как по визуальной концепции, так по уровню отделки и декора.</p>
+        <br>
+        <p>Идеальное 4K изображение обеспечено благодаря ультрасовременным лазерным проекторам четвёртой серии BARCO SP4K и SP2K бельгийского производства. Объемный многоканальный звук воспроизводят высококачественные акустические системы MAG AUDIO и американские кинопроцессоры QSC. Серебряные экраны от лидера индустрии — Galaite Prism дают возможность насладиться глубиной цветов из любой точки зала. Все это делает наши кинотеатры одними из самых высокотехнологичных в Беларуси!</p>
+        <br>
+      </div>
+
+      <p><strong>Наши преимущества:</strong></p>
+      <ul class="unicode-list">
+        <li>На 1 этаже кинотеатра функционирует VR-пространство, где посетители могут играть в видеоигры.</li>
+        <li>Атмосферная lounge-зона и панорамный SKYLINE BAR с видом на Минские ворота и вокзальную площадь.</li>
+        <li>Удобная локация в центре Минска.</li>
+      </ul>
+      <br>
+      <table>
+        <tr>
+          <th id="quantity">Количество подарочных сертификатов (шт.)</th>
+          <th id="min-time">Минимальный размер ($)</th>
+          <th id="max-time">Максимальный максимальный ($)</th>
+        </tr>
+        <tr>
+          <td headers="quantity"><p>12</p></td>
+          <td headers="min-time"><p>5</p></td>
+          <td headers="max-time"></td>
+        </tr>
+        <tr>
+          <td headers="quantity"><p>21</p></td>
+          <td headers="min-time"></td>
+          <td headers="max-time"><p>10</p></td>
+        </tr>
+        <tr>
+          <td headers="quantity"><p>33</p></td>
+          <td headers="min-time"><p>5</p></td>
+          <td headers="max-time">10</td>
+        </tr>
+      </table>
+
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/sw_PlCwy1Ak?si=DAXuHNdXEUN9QkVL&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </article>
+
+  <div class="contacts-wrapper">
+    <section class="contacts" itemscope itemtype="https://schema.org/Organization">
+      <h3>Контакты</h3>
+      <p itemprop="address">Кинотеатр SKYLINE Cinema в ТРЦ Galileo г. Минск, ул. Бобруйская 6, 5 этаж </p>
+      <br>
+      <br>
+      <p>Адрес электронной почты:</p>
+      <p itemprop="email">Info@skycinema.by</p>
+      <br>
+      <p>Телефон контакт-центра:</p>
+      <p>+375(44)733-77-33</p>
+      <p itemprop="telephone">Время работы кинотеатра и call-оператора: пн — вс с 12:00 до 23:00</p>
+      <br>
+      <br>
+      <p>Вы можете связаться с нами посредством VK и telegram.</p>
+
+    </section>
+
+    <section class="certificates">
+      <div class="custom-cert">
+        <h2>EДИНЫЙ РЕЕСТР КИНОТЕАТРОВ</h2>
+        <p>СВИДЕТЕЛЬСТВО</p>
+        <p>О внесении изменений</p>
+        <p>Общество с ограниченно ответственностью</p>
+        <p>Реестровый номер:645193</p>
+        <p>Директор: Монголов</p>
+      </div>
+    </section>
+
+    <section class="certificates">
+      <h3>Certificates</h3>
+      <img src="{% static 'back_info/images/certificate.png' %}" alt="">
+    </section>
+
+    </div>
+
+  <article class="history">
+    <h2>Наша история развития</h2>
+    <p><span class="year">2022</span>: Открытие кинотеатра в ТРЦ Galileo.
+      <br><br>
+    </p>
+  </article>
+</div>
+{% endblock %}

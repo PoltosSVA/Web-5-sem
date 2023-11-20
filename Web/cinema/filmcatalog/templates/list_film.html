@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Product list{% endblock %}
+{% block content %}
+
+  <div class="product-list-page">
+    <section class="header">
+      <h1>Film List</h1>
+    </section>
+
+  <section class="product-list">
+     {% if films %}
+    <ul>
+
+    <form action="{% url 'create_film'%}" method="get">
+            {% csrf_token %}
+            <input type="submit" value="Create" class="create-button">
+    </form>
+      {% for film in films %}
+
+      <li>
+        <a href="{{ film.get_absolute_url }}">{{ film.name }}</a>
+        ({{film.cost}})
+        <div>
+          <form action="{% url 'edit_film' film.id %}" method="get">
+            {% csrf_token %}
+            <input type="submit" value="Edit">
+          </form>
+          <form action="{% url 'delete_film' film.id %}" method="get">
+            {% csrf_token %}
+            <input type="submit" value="Delete">
+          </form>
+        </div>
+
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no films in the store.</p>
+    {% endif %}
+    </section>
+  </div>
+
+
+{% endblock %}

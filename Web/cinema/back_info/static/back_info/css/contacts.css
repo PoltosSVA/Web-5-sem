@@ -1,0 +1,29 @@
+.contacts-page h1 {
+    font-size: 2em;
+    margin-bottom: 2em;
+}
+
+.staff-flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px;
+    padding: 0;
+
+}
+
+.staff-card {
+    width: calc(30% - 20px);
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+.staff-card .staff-photo {
+    height: 19em;
+    margin-bottom: 1em;
+}
+
+.staff-card .staff-photo img {
+    width: 100%;
+    height: 100%;
+}

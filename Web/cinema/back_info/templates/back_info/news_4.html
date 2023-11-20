@@ -1,0 +1,33 @@
+{% extends "back_info/news_0.html" %}
+{% block title %}SKYLINE QUIZ{% endblock %}
+{% load static %}
+
+  {% block news-title %}{{ news.title }}{% endblock %}
+  {% block news-date %}{{ news.created }}{% endblock %}
+  {% block news-img %}<img src="{% static news.img_path %}?v=2" alt="">{% endblock %}
+  {% block news-text %}
+    <section class="news_x_text">
+      <p>{{ news.content }}</p>
+<!--      <p><strong>Любите кино и всё, что связано с ним? Добро пожаловать на “SKYLINE QUIZ”, первый в Беларуси не командный, а индивидуальный киноквиз! <span style=" background: #FF0000;">15 марта в 19:00</span> ждём вас на увлекательной игре в SKYLINE Cinema, где вас ждёт отличное настроение и подарки от партнёров нашего кинотетатра!</strong></p>-->
+<!--      <br>-->
+<!--      <p>Вас ждет 50 вопросов на тему «кино», спец-раунд «Оскар» и- крутые призы от кафе паназиатской кухни «EWOKI», а также магазина аксессуаров и гаджетов «Портатив».</p><br>-->
+<!--      <p>Классная атмосфера и необычная современная киноигра, которая не оставит вас равнодушными!</p>-->
+<!--      <br>-->
+<!--      <p>Количество мест отграничено!</p>-->
+    </section>
+  {% endblock %}
+
+  {% block news-4 %}
+    <a class="news-card-link" href="{% url 'back_info:news_0' %}">
+        <div class="news-card">
+          <div class="news-img">
+            <img src="{% static 'back_info/images/news-0.png' %}?v=2" alt="">
+          </div>
+          <div class="news-descr">
+            <br>
+            <h4>Счастливый билет в SKYLINE Cinema</h4>
+            <br>
+          </div>
+        </div>
+      </a>
+  {% endblock %}

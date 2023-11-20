@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Create film{% endblock %}
+
+{% block content %}
+  <h1>{% if view_type == 'create' %}Film Create{% else %}Film Update{% endif %}</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create</button>
+  </form>
+{% endblock %}

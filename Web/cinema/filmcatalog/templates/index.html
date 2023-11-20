@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Home {% endblock %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'filmcatalog/css/home.css' %}?v=2">
+
+<div class="home-page">
+  <div id="age-verification-modal" class="modal">
+      <div class="modal-content">
+        <h2>Age confirmation</h2>
+        <p>Enter you birthday:</p>
+        <input type="date" id="birth_date">
+        <button id="verify-age">Confirm</button>
+      </div>
+  </div>
+  <section class="home-partners">
+    <div class="partners-logo">
+      <a href="https://www.kinopoisk.ru/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Kinopoisk_colored_logo_%282021-present%29.svg" alt=""></a>
+    </div>
+    <div class="partners-logo">
+      <a href="https://www.netflix.com/ca/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt=""></a>
+    </div>
+  </section>
+
+  <section class="home-news">
+    <div class="news-title">
+      <h1>{{ news.title }}</h1>
+    </div>
+    <div class="news-title">
+      <p>{{ news.created }}</p>
+    </div>
+    <div class="news-img">
+      <a href="{% url 'back_info:news_5' %}" target="_blank" id="news-img-link"><img src="{% static news.img_path %}"  alt="" id="news-img-id"></a>
+    </div>
+    <div class="news-title">
+      <h4>{{ news.content }}</h4>
+    </div>
+    {% for group in user.groups.all %}
+       {% if group.name == 'Staff' %}
+         <form>
+          <label for="rotationInterval">Rotation period:</label>
+          <input type="number" id="rotationInterval">
+          <button id="SaveRotation" type="button">Save</button>
+         </form>
+       {% endif %}
+     {% endfor %}
+    <q><i>Quote:</i> <cite>{{ quote }}</cite></q>
+  </section>
+</div>
+{# birthday modal #}
+<script src="{% static 'filmcatalog/js/birthday_modal.js' %}"></script>
+{#  rotation #}
+<script>
+      var newsData = JSON.parse('{{ news_data_json|escapejs }}');
+
+      var titles = newsData.map(function(newsItem) {
+        return newsItem.title;
+      });
+
+      var imgPaths = newsData.map(function(newsItem) {
+        return newsItem.img_path;
+      });
+
+      var createdDates = newsData.map(function(newsItem) {
+        return newsItem.created;
+      });
+
+      var contents = newsData.map(function(newsItem) {
+        return newsItem.content;
+      });
+      var URL = [
+        "{% url 'back_info:news_5' %}",
+        "{% url 'back_info:news_4' %}",
+        "{% url 'back_info:news_2' %}",
+        "{% url 'back_info:news_3' %}",
+        "{% url 'back_info:news_1' %}",
+        "{% url 'back_info:news_0' %}"
+      ];
+
+      var currentNewsIndex = 0;
+      var rotationInterval = localStorage.getItem("rotationInterval") || 2000;
+      var rotationTimer;
+      var pageIsVisible = true;
+
+
+      function saveRotationInterval(interval) {
+          localStorage.setItem("rotationInterval", interval);
+      }
+      function rotateNews() {
+          currentNewsIndex = (currentNewsIndex + 1) % newsData.length;
+          var staticBase = "{% static '' %}";
+          document.getElementById('news-img-id').src = staticBase + imgPaths[currentNewsIndex];
+          document.getElementById('news-img-link').href = URL[currentNewsIndex]
+
+          document.querySelector('.news-title h1').textContent = titles[currentNewsIndex];
+          document.querySelector('.news-title p').textContent = createdDates[currentNewsIndex];
+          document.querySelector('.news-title h4').textContent = contents[currentNewsIndex];
+      }
+
+      function startNewsRotation() {
+          rotateNews();
+          rotationTimer = setInterval(rotateNews, rotationInterval);
+      }
+
+      document.addEventListener('visibilitychange', function() {
+          if (document.hidden) {
+              clearInterval(rotationTimer);
+              pageIsVisible = false;
+          } else {
+              pageIsVisible = true;
+              startNewsRotation();
+          }
+      });
+
+      window.addEventListener('load', startNewsRotation);
+
+      document.getElementById("rotationInterval").value = rotationInterval / 1000;
+
+      document.getElementById("SaveRotation").addEventListener("click", function() {
+      var newInterval = parseInt(document.getElementById("rotationInterval").value) * 1000;
+      if (!isNaN(newInterval)) {
+          clearInterval(rotationTimer);
+          rotationInterval = newInterval;
+          saveRotationInterval(rotationInterval);
+          startNewsRotation();
+      }
+      });
+</script>
+{% endblock %}

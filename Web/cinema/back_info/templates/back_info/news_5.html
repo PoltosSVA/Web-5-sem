@@ -1,0 +1,42 @@
+{% extends "back_info/news_0.html" %}
+{% block title %}ЗАЖИГАЕМ ВЕСНУ в SKYLINE Cinema!{% endblock %}
+{% load static %}
+
+  {% block news-title %}{{ news.title }}{% endblock %}
+  {% block news-date %}{{ news.created }}{% endblock %}
+  {% block news-img %}<img src="{% static news.img_path %}?v=2" alt="">{% endblock %}
+  {% block news-text %}
+    <section class="news_x_text">
+      <p>{{ news.content }}</p>
+<!--      <p>Пора вдыхать весну, яркость и праздничное настроение!</p>-->
+<!--      <br>-->
+<!--      <p>Приглашаем вас 8 марта в 17:00 встретить самый женственный праздник в году вместе с SKYLINE Cinema!</p><br>-->
+<!--      <p>Что вас ждет?</p>-->
+<!--      <br>-->
+<!--      <p>Премьера самого романтического фильма «При чем тут любовь?» от культового режиссера Шекхара Капура. После просмотра которого вы гарантированно узнаете, что же является секретом крепких отношений.</p>-->
+<!--      <br>-->
+<!--      <p>А до премьеры вы увидите настоящие индийские танцы, которые пробудят от зимней спячки, попробуете традиционный чай масала и индийские сладости бурфи.</p>-->
+<!--      <br>-->
+<!--      <p>17:00 Сбор гостей<br>-->
+<!--         17:15 — 18:15 Развлекательная программа<br>-->
+<!--         18:30 Премьера фильма «При чем тут любовь?»<br>-->
+<!--      </p>-->
+<!--      <br>-->
+<!--      <p>Встречайте весну правильно!</p>-->
+    </section>
+  {% endblock %}
+
+  {% block news-4 %}
+    <a class="news-card-link" href="{% url 'back_info:news_0' %}">
+        <div class="news-card">
+          <div class="news-img">
+            <img src="{% static 'back_info/images/news-0.png' %}?v=2" alt="">
+          </div>
+          <div class="news-descr">
+            <br>
+            <h4>Счастливый билет в SKYLINE Cinema</h4>
+            <br>
+          </div>
+        </div>
+      </a>
+  {% endblock %}

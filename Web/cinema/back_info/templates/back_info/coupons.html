@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block title %}Coupons{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'back_info/css/coupons.css' %}?v=2"/>
+
+<div class="coupons-page">
+  <section class="header">
+    <h1>Купоны</h1>
+  </section>
+  <section class="active">
+     <p>Действующие:</p>
+     <p>"2x2" - четыре билета по цене двух</p>
+  </section>
+  <br>
+  <br>
+  <section class="expired">
+     <p>Истекшие:</p>
+     <p>"2525" - Скидка 25% на билеты от 100 рублей и выше</p>
+  </section>
+
+</div>
+
+{% endblock %}

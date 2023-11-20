@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block title %}Openings{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'back_info/css/openings.css' %}?v=4"/>
+
+  <div class="openings-page">
+    <section class="header">
+      <h1>Вакансии</h1>
+    </section>
+
+    <section class="openings-list">
+      <ul>
+        <li><span class="op-st">Монтажёр</span> Место работы: ТРЦ Galileo г. Минск, ул. Бобруйская 6, 5 этаж
+    Оплата труда: от 2000 до 2500 бел. руб. до вычета налогов</li>
+        <li><span class="op-st">Уборщик</span> Место работы: ТРЦ Galileo г. Минск, ул. Бобруйская 5 этаж
+    Оплата труда: от 800 до 1000 бел. руб. до вычета налогов</li>
+        <li><span class="op-st">Кассир</span> Место работы: ТРЦ Galileo г. Минск, ул. Бобруйская 6 этаж</li>
+      </ul>
+    </section>
+  </div>
+
+
+{% endblock %}

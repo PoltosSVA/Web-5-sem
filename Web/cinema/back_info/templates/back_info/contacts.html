@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block title %}Contacts{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'back_info/css/contacts.css' %}?v=2"/>
+
+
+<div class="contacts-page">
+  <h1>Наши сотрудники</h1>
+
+  <div class="staff-flex">
+     <div class="staff-card">
+        <div class="staff-photo">
+            <img src="{% static 'back_info/images/staff-1.png' %}" alt="Staff Member 1">
+        </div>
+        <h2>Александр Монголов</h2>
+        <p>Email: alex@mail.ru</p>
+        <p>Должность: Владелец кинотеатра</p>
+    </div>
+
+    <div class="staff-card">
+        <div class="staff-photo">
+            <img src="{% static 'back_info/images/staff-2.png' %}" alt="Staff Member 1">
+        </div>
+        <h2>Андрей Петров</h2>
+        <p>Email: andrew@mail.ru</p>
+        <p>Должность: Старший кассир</p>
+    </div>
+
+    <div class="staff-card">
+        <div class="staff-photo">
+            <img src="{% static 'back_info/images/staff-3.png' %}" alt="Staff Member 1">
+        </div>
+        <h2>Антон Шляпин</h2>
+        <p>Email: anton@gmail.com</p>
+        <p>Должность: Стажер кассир</p>
+    </div>
+
+    <div class="staff-card">
+        <div class="staff-photo">
+            <img src="{% static 'back_info/images/staff-4.png' %}" alt="Staff Member 1">
+        </div>
+        <h2>Арсений Воеводов</h2>
+        <p>Email: arseny@gmail.com</p>
+        <p>Должность: Гардеробщик</p>
+    </div>
+
+    <div class="staff-card">
+        <div class="staff-photo">
+            <img src="{% static 'back_info/images/staff-5.png' %}" alt="Staff Member 1">
+        </div>
+        <h2>Галина Флорова</h2>
+        <p>Email: galina@gmail.com</p>
+        <p>Должность: Бухгалтер-экономист</p>
+    </div>
+
+    <div class="staff-card">
+        <div class="staff-photo">
+            <img src="{% static 'back_info/images/staff-6.png' %}" alt="Staff Member 1">
+        </div>
+        <h2>Никита Буянов</h2>
+        <p>Email: nikita@gmail.com</p>
+        <p>Должность: Техник</p>
+    </div>
+
+    <div class="staff-card">
+        <div class="staff-photo">
+            <img src="{% static 'back_info/images/staff-7.png' %}" alt="Staff Member 1">
+        </div>
+        <h2>Владимир Смолин</h2>
+        <p>Email: vladImir@gmail.com</p>
+        <p>Должность: Администратор</p>
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

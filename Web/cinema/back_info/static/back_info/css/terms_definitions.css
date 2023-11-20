@@ -1,0 +1,201 @@
+#top{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+#top::before{
+    content:'';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height:200px;
+    width: 100%;
+    background:linear-gradient(to top,#fff,transparent);
+    z-index: 2;
+}
+#question_central{
+    top: inherit;
+    bottom: 0;
+}
+section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+#text{
+    position: relative;
+    color: white;
+    font-size: 5rem;
+    height: 5em;
+}
+.t_and_d_page .header .title {
+    font-size: 2em;
+}
+
+.t_and_d_page .header .description {
+    margin:1em 0;
+}
+
+.t_and_d_page .header .description p{
+    margin-bottom:1em;
+}
+
+.t_and_d_page .content .title {
+    margin: 5em 0 1em;
+}
+
+.t_and_d_page .content .questions-grid {/*колонки*/
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2em;
+}
+
+.questions-grid .question {
+    box-shadow: 0px 22px 30px -20px rgba(62, 92, 156,0.3);/*смещение тени по горизонтали, вертикальное смещение тени, расширение тени*/
+}
+
+.questions-grid .question summary {
+     padding: 1.5em 0 0;
+     cursor: pointer;
+}
+
+.questions-grid .question p {
+    margin-top: 1.5em;
+}
+.questions-grid .question details {
+     padding: 0 0 1.5em;
+     cursor: pointer;
+}
+
+.questions-grid .question .date {
+    color: grey;
+
+}
+
+.t_and_d_page .content .questions-grid .col-1{
+    margin-right: 10px;
+}
+.t_and_d_page .content .questions-grid .col-2{
+    margin-left: 10px;
+}
+
+
+abbr.abbr-decoding::after {
+    content:" — State Security Committee.";
+    font-style: italic;
+    font-weight: bold;
+}
+
+span.date::before{
+    content:"Опубликовано: ";
+    font-weight:bold;
+}
+
+input[type="checkbox"]:checked + span{
+    background: red;
+}
+
+[id="select-first-num"]{
+    color:green;
+}
+[id ^= "select"]{
+    font-weight:bold;
+}
+[id $= "num"]{
+    font-style:italic;
+}
+[id *= "second"]{
+    background: purple;
+}
+blockquote::first-letter {
+    font-size: 1.3em;
+    color: red;
+}
+blockquote::first-line {
+    color:purple;
+}
+q:lang(en){
+    quotes: "\201C" "\201D";
+    font-family: "Monotype Corsiva", "Apple Chancery", "URW Chancery L", cursive;
+}
+q:lang(fr){
+    quotes: "\00AB" "\00BB";
+    font-family: "URW Chancery L", , "Apple Chancery","Monotype Corsiva",  cursive;
+}
+q:lang(de){
+    quotes: "\201E" "\201C";
+    font-family: "Apple Chancery",   cursive, "URW Chancery L", "Monotype Corsiva";
+}
+
+
+.cust-font {
+    text-indent: 30px;
+    line-height: 2em;
+}
+
+.cust-font:hover {
+    background: linear-gradient(90deg, black, red); /* Градиент от черного к красному */
+    color: transparent; /* Делаем текст прозрачным */
+    -webkit-background-clip: text; /* Задаем клиппирование фона по тексту */
+    transition: background 1s; /* Анимация смены фона */
+    animation: spin 3s linear infinite; /* Анимация вращения(имя анимации, длительность, равномерно) */
+}
+
+@keyframes spin {
+    0% { transform: rotateY(0deg); } /* Вращение вокруг оси Y */
+    100% { transform: rotateY(360deg); }
+}
+.download-image:link{
+    color:black;
+    font-size:1.2em;
+    text-decoration: none;
+}
+.download-image:hover {
+    font-size: 1.4em;
+    text-decoration: underline;
+}
+
+.download-image:active {
+    color: green;
+}
+
+.download-image {
+    word-spacing: 1em;
+    word-wrap: break-word;
+}
+#tableContainer table {
+    border-collapse: collapse;
+}
+
+#tableContainer table, th, td {
+    border: 1px solid black;
+}
+
+#tableContainer th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+#tableContainer .highlight-even {
+    background-color: blue;
+}
+
+#tableContainer .highlight-odd {
+    background-color: white;
+}
+
+#tableContainer .selected {
+    background-color: green;
+    font-color: white;
+}
+
+

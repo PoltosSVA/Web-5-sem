@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+    Your shopping cart
+{% endblock %}
+
+{% block content %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'filmcatalog/css/detail.css' %}?v=5"/>
+
+  <div class="cart-page">
+
+    <section class="header">
+      <h1>Your shopping cart</h1>
+    </section>
+
+    <section class="cart-items">
+      <table class="cart-table">
+      <colgroup>
+        <col>
+        <col>
+      </colgroup>
+        <tbody>
+          {% for item in cart %}
+              {% with film=item.film %}
+                  <tr>
+                    <td>
+                      <div class="item-img">
+                        {% with image=film.photo %}
+                        <img src="
+                                {% if film.photo %}
+                                    {{ film.photo.url }}
+                                {% else %}
+                                    {% static 'img/no_image.png' %}
+                                {% endif %}" alt="">
+                        {% endwith %}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="item-info">
+                        <a href="{{ film.get_absolute_url }}"><strong>Product: </strong>{{ film.name }}</a>
+                        <br>
+                        <p><strong>Price (unit): </strong>{{ item.price }}$</p>
+                        <p><strong>Quantity: </strong>{{ item.quantity }}</p>
+                        <a href="{% url 'cart_remove' film.id %}" class="rem-link">Remove</a>
+                      </div>
+                    </td>
+                  </tr>
+              {% endwith %}
+          {% endfor %}
+        </tbody>
+      </table>
+      <h2>Total: <span id="totalPrice">{{ cart.get_total_price }}</span> $</h2>
+      <input type="text" id="couponCode" placeholder="Enter coupon code">
+      <button id="applyCoupon" type="button">Apply Coupon</button>
+    </section>
+
+    <form action="" method="POST" class="order-form">
+      {{ form.as_p }}
+      <p><input type="submit" value="Checkout" name="checkout" class="pay-link"></p>
+      {% csrf_token %}
+    </form>
+
+  </div>
+
+  {# coupon #}
+<script src="{% static 'filmcatalog/js/coupon.js' %}?v=2"></script>
+
+
+{% endblock %}

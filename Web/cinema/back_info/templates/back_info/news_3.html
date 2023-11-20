@@ -1,0 +1,33 @@
+{% extends "back_info/news_0.html" %}
+{% block title %}Кинопоказ фильма «Бюро магических услуг» и шоу иллюзиониста{% endblock %}
+{% load static %}
+
+  {% block news-title %}{{ news.title }}{% endblock %}
+  {% block news-date %}{{ news.created }}{% endblock %}
+  {% block news-img %}<img src="{% static news.img_path %}?v=2" alt="">{% endblock %}
+  {% block news-text %}
+    <section class="news_x_text">
+      <p>{{ news.content }}</p>
+<!--      <p><strong>Хотите погрузится в мир настоящей магии?</strong></p>-->
+<!--      <br>-->
+<!--      <p>Эксклюзивный показ фильма «Бюро магических услуг» скоро откроет дверь в волшебство.</p><br>-->
+<!--      <p>Иллюзионист Влад Диденко,который уже покорил сердца сотен белорусов и организовал собственное шоу в Дубае,выступит специально для вас и погрузит в мистическую атмосферу.</p>-->
+<!--      <br>-->
+<!--      <p>Кроме того каждого ждут профессиональные фото и вкусный попкорн в подарок!</p>-->
+    </section>
+  {% endblock %}
+
+  {% block news-3 %}
+    <a class="news-card-link" href="{% url 'back_info:news_0' %}">
+        <div class="news-card">
+          <div class="news-img">
+            <img src="{% static 'back_info/images/news-0.png' %}?v=2" alt="">
+          </div>
+          <div class="news-descr">
+            <br>
+            <h4> Счастливый билет в SKYLINE Cinema</h4>
+            <br>
+          </div>
+        </div>
+      </a>
+  {% endblock %}

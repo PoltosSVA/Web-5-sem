@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block title %}News{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'back_info/css/news.css' %}?v=8"/>
+
+<div class="news-page">
+  <div class="news-content">
+    <h1>Новости</h1>
+
+    <section class="main-news">
+      <div class="main-news-img">
+        <a href="{% url 'back_info:news_5' %}"><img src="{% static 'back_info/images/news-5.png' %}?v=2" alt=""></a>
+
+        <div class="main-news-descr">
+          <span class="light-gray">8 марта 2023</span>
+          <br>
+          <br>
+          <h4>Важно!</h4>
+          <br>
+          <span class="light-gray">Пора вдыхать весну, яркость и праздничное настроение!</span>
+        </div>
+      </div>
+
+      <div class="news-list">
+        <h2>Популярные новости</h2>
+        <ul>
+          <li><a href="{% url 'back_info:news_5' %}">ЗАЖИГАЕМ ВЕСНУ в SKYLINE Cinema!<span class="light-gray">&ensp;08 марта 2023</span></a></li>
+          <li><a href="{% url 'back_info:news_0' %}">Счастливый билет в SKYLINE Cinema<span class="light-gray"></span></a></li>
+          <li><a href="{% url 'back_info:news_1' %}">Auto Party<span class="light-gray">&ensp;20 мая 2023</span></a></li>
+          <li><a href="{% url 'back_info:news_2' %}">Barbie Pre-party<span class="light-gray">&ensp;27 июля 2023</span></a></li>
+          <li><a href="{% url 'back_info:news_3' %}">Кинопоказ фильма «Бюро магических услуг» и шоу иллюзиониста</a></li>
+          <li><a href="{% url 'back_info:news_4' %}">SKYLINE QUIZ<span class="light-gray">&ensp;15 марта 2023</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="all-news">
+      <h2>Все новости</h2>
+
+      <a class="news-card-link" href="{% url 'back_info:news_0' %}">
+        <div class="news-card">
+          <div class="news-img">
+            <img src="{% static 'back_info/images/news-0.png' %}?v=2" alt="">
+          </div>
+          <div class="news-descr">
+            <br>
+            <h4>Счастливый билет в SKYLINE Cinema</h4>
+            <br>
+          </div>
+        </div>
+      </a>
+
+      <a class="news-card-link" href="{% url 'back_info:news_1' %}">
+        <div class="news-card">
+          <div class="news-img">
+            <img src="{% static 'back_info/images/news-1.png' %}?v=2" alt="">
+          </div>
+          <div class="news-descr">
+            <span class="light-gray">20 мая 2023</span>
+            <br>
+            <br>
+            <h4>Auto Party</h4>
+          </div>
+        </div>
+      </a>
+
+      <a class="news-card-link" href="{% url 'back_info:news_2' %}">
+        <div class="news-card">
+          <div class="news-img">
+            <img src="{% static 'back_info/images/news-2.png' %}?v=2" alt="">
+          </div>
+          <div class="news-descr">
+            <span class="light-gray">27 июля 2023</span>
+            <br>
+            <br>
+            <h4>Barbie Pre-party</h4>
+          </div>
+        </div>
+      </a>
+
+      <a class="news-card-link" href="{% url 'back_info:news_3' %}">
+        <div class="news-card">
+          <div class="news-img">
+            <img src="{% static 'back_info/images/news-3.png' %}?v=2" alt="">
+          </div>
+          <div class="news-descr">
+            <br>
+            <h4>Кинопоказ фильма «Бюро магических услуг» и шоу иллюзиониста</h4>
+            <br>
+          </div>
+        </div>
+      </a>
+
+      <a class="news-card-link" href="{% url 'back_info:news_4' %}">
+        <div class="news-card">
+          <div class="news-img">
+            <img src="{% static 'back_info/images/news-4.png' %}?v=2" alt="">
+          </div>
+          <div class="news-descr">
+            <span class="light-gray">15 марта 2023</span>
+            <br>
+            <br>
+            <h4>SKYLINE QUIZ</h4>
+          </div>
+        </div>
+      </a>
+    </section>
+
+  </div>
+
+
+
+</div>
+
+{% endblock %}

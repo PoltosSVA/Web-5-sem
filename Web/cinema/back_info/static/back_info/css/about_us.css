@@ -1,0 +1,147 @@
+.about-us-page {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.about-us-page .header {
+    grid-column: 1/9;
+}
+
+.about-us-page .header {
+    font-size: 2em;
+}
+
+.about-us-page .info {
+    grid-column: 1/9;
+}
+
+.about-us-page .info figure>img {
+    margin: 1em 0;
+    width: 100%;
+}
+
+.info .video {
+    margin-top: 2em;
+}
+
+.info .video video {
+    width: 100%;
+}
+
+.about-us-page .contacts-wrapper{
+    grid-column: 10/13;
+    display: inline;
+}
+
+.about-us-page .contacts {
+    font-size: 0.9em;
+    margin: 1em 0 3em;
+    border-left: 1px solid rgb(56, 54, 54);
+    padding-left: 0.5em;
+}
+
+.about-us-page .contacts-wrapper h3 {
+    margin: 0.6em 0;
+}
+
+.contacts-wrapper .certificates {
+    grid-column: 10/13;
+}
+
+.contacts-wrapper .certificates .custom-cert{
+    background-color: wheat;
+}
+
+.contacts-wrapper .certificates img{
+    width: 100%;
+}
+
+.about-us-page .history {
+    grid-column: 1/10;
+}
+
+.about-us-page .history>h2 {
+    margin: 2em 0 0.5em 0;
+}
+
+.history .year {
+    font-weight: bold;
+}
+
+.unicode-list{
+    list-style:none;
+}
+.unicode-list li::before{
+    content:"\002A";
+    margin-right: 5px;
+}
+
+.columns-sp{
+    columns: 150px 3;
+}
+
+li::selection {
+    background-color: white;
+    color: black;
+}
+
+ul li:first-child {
+    color: green;
+}
+
+ul li:last-child {
+    color: orange;
+}
+
+ul li:nth-child(2) {
+    color: purple;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table th {
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: bold;
+    border: 5px groove purple;
+    border-radius: 13em;
+}
+
+table td:empty {
+  background-color: red;
+}
+
+table th, td {
+  text-align: center;
+  vertical-align: middle;
+
+}
+
+.about-us-page .contacts {
+    font-size: 1.1em;
+    margin: 1em 0 3em;
+    border-left: 3px solid black;
+    padding-left: 0.5em;
+    font-family: "Monotype Corsiva", "Apple Chancery", "URW Chancery L", cursive;
+}
+
+.contacts-wrapper .certificates .custom-cert{
+    background-image: linear-gradient(
+    to bottom,
+    rgba(161, 74, 74, 0.3),
+    rgba(70, 80, 158, 0.3)
+  );
+    border: 30px solid transparent;/*цвет границы(прозрачный)*/
+    background-size: 100% 100%;
+    -moz-border-image: url('https://svgsilh.com/svg/1781465.svg') 15 30;
+    -webkit-border-image: url('https://svgsilh.com/svg/1781465.svg') 15 30;
+    -o--moz-border-image: url('https://svgsilh.com/svg/1781465.svg') 15 30;
+    background-clip: content-box;
+    padding: 23px;
+    font-family: "Times New Roman", serif;
+    line-height: 2em;
+    text-align: center;
+    z-index: 5;
+}

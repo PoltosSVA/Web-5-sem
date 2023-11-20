@@ -1,0 +1,250 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block title %}terms_definitions{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'back_info/css/terms_definitions.css' %}"/>
+
+<div class="t_and_d_page">
+  <article>
+    <section id="top">
+      <h2 id="text">Вопросы</h2>
+      <img src="{% static 'back_info/images/left.png' %}" alt="" id="question_left">
+      <img src="{% static 'back_info/images/central.png' %}" alt="" id="question_central">
+      <img src="{% static 'back_info/images/right.png' %}" alt="" id="question_right">
+    </section>
+    <section class="header">
+      <div class="title" id="anchor">
+        <h1>Вопрос-ответ</h1>
+      </div>
+      <div class="description">
+        <p>Данный раздел содержит ответы на наиболее распространенные вопросы.</p>
+        <p>Пожалуйста, выберите интересующий вас подраздел ниже, чтобы посмотреть соответствующий перечень вопросов и ответов.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="title">
+        <h2>Все вопросы</h2>
+      </div>
+      <div class="questions-grid">
+
+        <div class="col-1">
+          <div class="question">
+            <details>
+              <summary>Можно ли купить билет на сеанс после начала фильма?</summary>
+              <p><span class="date">05.04.2023</span> Продажа билетов на текущий сеанс прекращается через 20 минут после начала фильма.
+                <br>
+                <br>
+            </details>
+          </div>
+
+          <div class="question">
+            <details>
+              <summary>Может ли ребенок 16 лет пойти на фильм с возрастным ограничением 18+ в сопровождении родителей?</summary>
+              <p><span class="date">01.05.2023</span> Нет.
+                <br>
+                <label for="tableSize">Table size:</label>
+              <input type="number" id="tableSize">
+              <button id="generateTable">Generate</button>
+              <button id="transposeTable">Transpose</button>
+              <br>
+              <div id="tableContainer"></div>
+              <label for="cellLimit">Max selected cells:</label>
+              <input type="number" id="cellLimit" min="1" value="1">
+              <button id="clearSelection">Clear selections</button>
+              <br>
+              <button id="addRow">Insert row</button>
+              <button id="addColumn">Insert column</button>
+                <form id="subscriberForm">
+                <label for="colore">Color:</label>
+                <input type="text" id="colore" name="colore"><br>
+
+
+
+                <label for="sizee">Amount of calls:</label>
+                <input type="number" id="sizee" name="sizee"><br>
+
+
+                <button type="button" onclick="AddCube()">Add cube</button>
+              </form>
+              <button type="button" onclick="GetCubes()">Find cube</button>
+            </details>
+
+          </div>
+
+          <div class="question">
+            <details>
+              <summary>Когда снимается бронь на билеты?</summary>
+              <p><span class="date">06.05.2023</span> Бронь на билеты снимается за 20 минут до начала сеанса.
+            </details>
+          </div>
+
+
+
+
+          </div>
+        <div class="col-2">
+           <div class="question">
+            <details>
+              <summary>Может ли ребенок 6 лет пойти на фильм с возрастным ограничением 12+?</summary>
+              <p><span class="date">01.07.2023</span> Да, может, но только в сопровождении родителей или законных представителей.
+            </details>
+          </div>
+
+          <div class="question">
+            <details class="borders">
+              <summary>Где увидеть информацию об организации?</summary>
+                <br>
+              <span class="date">15.12.2022</span> <span>Информацию об организации можно увидеть во вкладке About us.</span>
+               <br>
+                <form>
+                  <label>
+                    <input type="checkbox" id="styless"> Change styles
+                  </label>
+
+                </form>
+              <div id="font-controls"></div>
+                <script>
+                  const checkbox = document.getElementById("styless");
+                  checkbox.addEventListener("change", function() {
+                    const fontControls = document.getElementById("font-controls");
+
+                    if (checkbox.checked) {
+                      const input = document.createElement("input");
+                      input.type = "number";
+                      input.placeholder = "Font Size";
+                      const colorPick = document.createElement("input");
+                      colorPick.type = "color";
+                      const colorPickBack = document.createElement("input");
+                      colorPickBack.type = "color";
+                      const button = document.createElement("button");
+                      button.textContent = "Change Font Size";
+                      button.addEventListener("click", function() {
+                        const fontSize = input.value + "px";
+                        document.body.style.fontSize = fontSize;
+                      });
+                      const buttonColor = document.createElement("button");
+                      buttonColor.textContent = "Change Text Color";
+
+                      buttonColor.addEventListener("click", function() {
+                      const selectedColor = colorPick.value;
+                      document.body.style.color = selectedColor;
+                      });
+
+                       const buttonColorBack = document.createElement("button");
+                      buttonColorBack.textContent = "Change Back Color";
+
+                      buttonColorBack.addEventListener("click", function() {
+                      const backColor = colorPickBack.value;
+                      document.body.style.backgroundColor = backColor;
+                      });
+                      fontControls.appendChild(input);
+                      fontControls.appendChild(button);
+                      fontControls.appendChild(colorPick);
+                      fontControls.appendChild(buttonColor);
+                      fontControls.appendChild(colorPickBack);
+                      fontControls.appendChild(buttonColorBack);
+                    } else {
+                      while (fontControls.firstChild) {
+                        document.body.style.fontSize = "16px";
+                        fontControls.removeChild(fontControls.firstChild);
+                        document.body.style.color = "black";
+                        fontControls.removeChild(fontControls.firstChild);
+                        document.body.style.backgroundColor = "rgb(196, 166, 114)";
+                        fontControls.removeChild(fontControls.firstChild);
+                      }
+                    }
+                  });
+              </script>
+                <br>
+
+                <br>
+               <abbr title="State Security Committee" class="abbr-decoding">SSC</abbr>
+               <br>
+                <br>
+
+               <dfn title="Документ, удостоверяющий право пользоваться чем-н. за плату.">Кино</dfn>
+               <br>
+                <br>
+                <br>
+               <q cite="https://citaty.info/topic/kino">Лучший в мире кинозал — это мозг, и ты понимаешь это, когда читаешь хорошую книгу.</q>
+               <br>
+                <br>
+                <br>
+               <time datetime="23:00">11 pm.</time>
+               <br>
+              <input type="checkbox" name="1" ><span id="select-first-num">First</span><br>
+              <input type="checkbox" name="2" ><span id="select-second-num"span>Second</span><br>
+              <input type="checkbox" name="3" ><span id="select-third-num"span>Third</span><br>
+                <br>
+                <blockquote cite="https://citaty.info/topic/kino">
+                    Лучший в мире кинозал — это мозг, и ты понимаешь это, когда читаешь хорошую книгу.
+                </blockquote>
+                <br>
+              <q lang="en">
+                То be or not to be.
+              </q>
+                <br>
+              <q lang="fr" >
+                Ce que femme veut, Dieu le veut.
+              </q>
+                <br>
+              <q lang="de">
+                Der Mensch, versuche die.
+              </q>
+                <br>
+                <br>
+               <pre class="cust-font">
+                  Заколдован невидимкой, <br>
+                  Дремлет лес под сказку сна,<br>
+                  Словно белою косынкой<br>
+                  Повязалася сосна.<br>
+               </pre>
+              <br>
+                <br>
+                <br>
+              <a href="{% static 'filmcatalog/images/img.png' %}" download class="download-image">Download image</a>
+              <br>
+                <br>
+                <br>
+              <a href="#anchor">Anchor</a>
+
+              <br>
+              <label for="list-id">Select an item:</label>
+              <select id="list-id">
+                <option value="1">item 1</option>
+                <option value="2">item 2</option>
+                <option value="3">item 3</option>
+              </select>
+              <br>
+              <br>
+              <audio src="{% static 'filmcatalog/audio/short-success-sound-glockenspiel-treasure-video-game-6346.mp3' %}" controls></audio>
+
+            </details>
+          </div>
+        </div>
+        </div>
+
+    </section>
+  </article>
+
+</div>
+{# style_change #}
+<script src="{% static 'back_info/js/style_change.js' %}?v=4"></script>
+
+{# table_operations #}
+<script src="{% static 'back_info/js/table_operations.js' %}?v=2"></script>
+  {# image_scroll #}
+<script src="{% static 'back_info/js/image_scroll.js' %}?v=3"></script>
+  {# cube #}
+<script src="{% static 'back_info/js/cubes.js' %}?v=2"></script>
+
+  {# class_inheritance #}
+<script src="{% static 'back_info/js/class_inheritance.js' %}?v=2"></script>
+
+  {# func_inheritance #}
+{#<script src="{% static 'back_info/js/func_inheritance.js' %}?v=2"></script>#}
+{% endblock %}
+

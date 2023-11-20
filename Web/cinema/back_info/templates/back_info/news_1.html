@@ -1,0 +1,40 @@
+{% extends "back_info/news_0.html" %}
+{% block title %}Auto Party{% endblock %}
+{% load static %}
+
+  {% block news-title %}{{ news.title }}{% endblock %}
+  {% block news-date %}{{ news.created }}{% endblock %}
+  {% block news-img %}<img src="{% static news.img_path %}?v=2" alt="">{% endblock %}
+  {% block news-text %}
+    <section class="news_x_text" >
+      <p>{{ news.content }}</p>
+<!--      <p>Покажи мне, как ты водишь, и я скажу, кто ты!</p>-->
+<!--      <br>-->
+<!--      <p>Любители дрифта и скорости, влюбленные парочки и добрые друзья. Вот уже более 20-ти лет мы наблюдаем за серией фильмов «Форсаж». Новая часть уже в мае!</p><br>-->
+<!--      <p>Что вас ждет?</p>-->
+<!--      <br>-->
+<!--      <p>Вас ждёт Auto Party под открытым небом — эксклюзивные автомобили под любимые саундтреки из фильма «Форсаж».</p>-->
+<!--      <br>-->
+<!--      <p>Ловите атмосферу драйва и свободы! Лучшая локация в центре Минска и классные подарки – заряжаем энергией весны !</p>-->
+<!--      <br>-->
+<!--      <p><i>«Все ищут острых ощущений, но самое важное лишь семья… Твоя семья». Хотите услышать легендарную фразу ещё раз?!</i>-->
+<!--      </p>-->
+<!--      <br>-->
+<!--      <p>До встречи <span style=" background: #FF0000;">20 мая</span> в SKYLINE</p>-->
+    </section>
+  {% endblock %}
+
+  {% block news-1 %}
+    <a class="news-card-link" href="{% url 'back_info:news_0' %}">
+        <div class="news-card">
+          <div class="news-img">
+            <img src="{% static 'back_info/images/news-0.png' %}?v=2" alt="">
+          </div>
+          <div class="news-descr">
+            <br>
+            <h4>Счастливый билет в SKYLINE Cinema</h4>
+            <br>
+          </div>
+        </div>
+      </a>
+  {% endblock %}
